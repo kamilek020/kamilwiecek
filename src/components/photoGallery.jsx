@@ -1,7 +1,7 @@
 
 import React, { useState, useEffect, useRef,  } from 'react';
-import Img1 from './images/astronauta-projektor.jpg';
-import Img2 from './images/led510.jpg';
+import Img1 from '../../images/astronauta-projektor.jpg';
+import Img2 from '../../images/led510.jpg';
 
 const PhotoGallery = () => {
     const photos = [
