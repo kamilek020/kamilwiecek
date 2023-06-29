@@ -46,11 +46,6 @@ button {
   border: none;
   padding: 16px;
 }
-
-button:hover{
-  border-bottom: 2px solid #868686;
-}
-
 .buttonHidden{
   display: none;
 }

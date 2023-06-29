@@ -1,26 +1,11 @@
-
-import React, { useState, useEffect, useRef,  } from 'react';
-import Img1 from '../../images/astronauta-projektor.jpg';
-import Img2 from '../../images/led510.jpg';
-import Img3 from '../../images/sunset-lamp.jpg';
-import Img4 from '../../images/orgaznier-bizu.png';
-import Img5 from '../../images/projektor-zwykly.jpg';
+import React, { useState, useEffect, useRef } from 'react';
+import data from '../components/data.json';
 
 const PhotoGallery = () => {
-    const photos = [
-        { id: 1, url: Img1, description: 'PROJEKTOR ASTRONAUTA', details: 'Szczegóły produktu 1' },
-        { id: 2, url: Img2, description: 'TAŚMA LED 5 METRÓW', details: 'Szczegóły produktu 1'  },
-        { id: 3, url: Img2, description: 'TAŚMA LED 10 METRÓW', details: 'Szczegóły produktu 1'  },
-        { id: 4, url: Img3, description: 'SUNSET LAMPA', details: 'Szczegóły produktu 1'  },
-        { id: 5, url: Img4, description: 'ORGANIZER NA BIŻUTERIĘ', details: 'Szczegóły produktu 1'  },
-        { id: 6, url: Img5, description: 'PROJEKTOR GWIAZD', details: 'Szczegóły produktu 1'  },
-        { id: 7, url: Img5, description: 'PROJEKTOR GWIAZD', details: 'Szczegóły produktu 1'  },
-        { id: 8, url: Img5, description: 'PROJEKTOR GWIAZD', details: 'Szczegóły produktu 1'  },
-    ];
     const [selectedProduct, setSelectedProduct] = useState(null);
 
     const handleProductClick = (productId) => {
-        const product = photos.find(photo => photo.id === productId);
+        const product = data.find((item) => item.id === productId);
         setSelectedProduct(product);
     };
 
@@ -28,7 +13,6 @@ const PhotoGallery = () => {
         setSelectedProduct(null);
     };
 
-    // Dodane style dla galerii
     const galleryContainerRef = useRef(null);
 
     useEffect(() => {
@@ -38,27 +22,27 @@ const PhotoGallery = () => {
             container.style.gridTemplateColumns = `repeat(${numColumns}, 1fr)`;
         };
 
-        handleResize(); // Wywołanie na starcie
-        window.addEventListener('resize', handleResize); // Nasłuchiwanie na zmiany rozmiaru okna
+        handleResize();
+        window.addEventListener('resize', handleResize);
 
         return () => {
-            window.removeEventListener('resize', handleResize); // Oczyszczanie nasłuchiwania przy odmontowaniu komponentu
+            window.removeEventListener('resize', handleResize);
         };
     }, []);
 
     return (
         <div className="mt-8 mx-auto max-w-4xl" ref={galleryContainerRef}>
             <div className="grid gap-4 grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 xl:grid-cols-3">
-                {photos.map(photo => (
-                    <div key={photo.id} className="bg-gray-100 shadow-xl rounded-lg overflow-hidden shadow-sm h-96 mx-auto w-80 md:w-11/12">
+                {data.map((item) => (
+                    <div key={item.id} className="bg-gray-100 shadow-xl rounded-lg overflow-hidden shadow-sm h-96 mx-auto w-80 md:w-11/12">
                         <img
-                            src={photo.url}
-                            alt={`Zdjęcie ${photo.id}`}
+                            src={item.url}
+                            alt={`Zdjęcie ${item.id}`}
                             className="h-3/4 w-full object-cover"
-                            onClick={() => handleProductClick(photo.id)}
+                            onClick={() => handleProductClick(item.id)}
                         />
                         <div className="p-4 h-1/4">
-                            <h2 className={`text-lg font-semibold ${photo.description.length > 40 ? 'truncate' : ''}`}>{photo.description}</h2>
+                            <h2 className={`text-lg font-semibold ${item.name.length > 40 ? 'truncate' : ''}`}>{item.name}</h2>
                         </div>
                     </div>
                 ))}
@@ -71,8 +55,10 @@ const PhotoGallery = () => {
                             alt={`Zdjęcie ${selectedProduct.id}`}
                             className="w-full h-auto"
                         />
-                        <h2 className="text-xl font-bold mt-2">{selectedProduct.description}</h2>
-                        <p className="mt-2">{selectedProduct.details}</p>
+                        <h2 className="text-xl font-bold mt-2">{selectedProduct.name}</h2>
+                        <p className="text-gray-500">Dostępność: {selectedProduct.quantity} szt.</p>
+                        <p className="text-gray-500">Cena: {selectedProduct.price} zł</p>
+                        <p className="text-gray-500">{selectedProduct.description}</p>
                         <button
                             className="bg-gray-800 text-white px-4 py-2 rounded mt-4"
                             onClick={closeDetails}
@@ -86,7 +72,4 @@ const PhotoGallery = () => {
     );
 };
 
-
-
 export default PhotoGallery;
-
