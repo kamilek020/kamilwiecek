@@ -9,7 +9,7 @@
   font-weight: 400;
 
   color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
+  color: rgba(58, 58, 58, 0.87);
   background-color: #242424;
 
   font-synthesis: none;
@@ -34,7 +34,7 @@ body {
   display: flex;
   min-width: 320px;
   min-height: 100vh;
-  background-color: #0f172a;
+  background-color: #efefef;
 }
 
 h1 {
@@ -43,25 +43,16 @@ h1 {
 }
 
 button {
-  border-radius: 8px;
-  border: 1px solid transparent;
-  padding: 2em 2em;
-  margin: 2em 5em;
-  font-size: 1em;
-  font-weight: 500;
-  font-family: inherit;
-  background: white;
-  cursor: pointer;
-  transition: border-color 0.25s;
-  border: 2px solid #213547;
+  border: none;
+  padding: 16px;
+}
+
+button:hover{
+  border-bottom: 2px solid #868686;
 }
 
 .buttonHidden{
   display: none;
-}
-
-button:hover {
-  border-color: #646cff;
 }
 
 button:focus,

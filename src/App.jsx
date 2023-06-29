@@ -1,19 +1,24 @@
-import { useState } from 'react'
+import { useState } from "react";
 import './App.css'
-import Title from "./components/Title.jsx";
-import TimeNow from "./components/TimeNow.jsx";
-import Table from "./components/Table.jsx";
+import Header from './components/header.jsx'
+import PhotoGallery from "./components/photoGallery.jsx";
+import ContactForm from "./components/ContactForm.jsx";
+import ImportantInfoSection from "./components/ImportantInfoSection.jsx";
+import Footer from "./components/Footer.jsx";
 
 function App() {
-  const [count, setCount] = useState(0)
 
   return (
     <div className="App">
-      <Title></Title>
-      <TimeNow></TimeNow>
-      <Table></Table>
+        <PhotoGallery />
+        <div className="mt-10">
+            {/*<ContactForm */}
+        </div>
+        <ImportantInfoSection />
+        <Footer/>
     </div>
   )
 }
 
 export default App
+

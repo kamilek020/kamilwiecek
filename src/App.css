@@ -10,6 +10,7 @@
   margin:0;
   padding:0;
   box-sizing: border-box;
+  background-color: white;
 }
 
 .logo {
@@ -45,4 +46,8 @@
 
 .read-the-docs {
   color: #888;
+}
+
+.square {
+  padding-bottom: 100%;
 }
