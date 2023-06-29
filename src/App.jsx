@@ -1,8 +1,6 @@
-import { useState } from "react";
+import react from "react";
 import './App.css'
-import Header from './components/header.jsx'
 import PhotoGallery from "./components/photoGallery.jsx";
-import ContactForm from "./components/ContactForm.jsx";
 import ImportantInfoSection from "./components/ImportantInfoSection.jsx";
 import Footer from "./components/Footer.jsx";
 
