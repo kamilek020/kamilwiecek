@@ -2,9 +2,10 @@ import React from "react";
 
 const Header = () => {
     return (
-        <h1 className="text-center text-xl bg-gray-200 py-52 md:text-7xl font-bold mt-8">
-            KATALOG VESS
-        </h1>
+        <div className="text-center bg-gray-200 mt-8 py-8 md:py-52">
+            <h1 className="text-xl bg-gray-200 md:text-7xl font-bold">KATALOG VESS</h1>
+            <p className="text-sm md:text-xl bg-gray-200 mt-2">Staramy się, aby zakupy były zawsze udane!</p>
+        </div>
     );
 };
 
