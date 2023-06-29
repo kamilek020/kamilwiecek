@@ -1,9 +1,10 @@
 
 import React, { useState, useEffect, useRef,  } from 'react';
+import Img1 from './images/astronauta-projektor.jpg';
 
 const PhotoGallery = () => {
     const photos = [
-        { id: 1, url: '../../images/astronauta-projektor.jpg', description: 'PROJEKTOR ASTRONAUTA', details: 'Szczegóły produktu 1' },
+        { id: 1, url: Img1, description: 'PROJEKTOR ASTRONAUTA', details: 'Szczegóły produktu 1' },
         { id: 2, url: '../../images/led510.jpg', description: 'TAŚMA LED 5 METRÓW', details: 'Szczegóły produktu 1'  },
         { id: 3, url: '../../images/led510.jpg', description: 'TAŚMA LED 10 METRÓW', details: 'Szczegóły produktu 1'  },
         { id: 4, url: '../../images/sunset-lamp.jpg', description: 'SUNSET LAMPA', details: 'Szczegóły produktu 1'  },
