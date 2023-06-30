@@ -1,7 +1,7 @@
 [
   {
     "id": 1,
-    "url": "../../images/astronauta_projektor.jpg",
+    "url": "../../public/images/astronauta_projektor.jpg",
     "name": "PROJEKTOR ASTRONAUTA",
     "quantity": 150,
     "price": 99.99,

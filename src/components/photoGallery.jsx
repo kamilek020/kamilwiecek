@@ -37,7 +37,7 @@ const PhotoGallery = () => {
                 {data.map((item) => (
                     <div key={item.id} className="bg-gray-100 shadow-xl rounded-lg overflow-hidden shadow-sm h-96 mx-auto w-80 md:w-11/12">
                         <img
-                            src={img}
+                            src={url}
                             alt={`Zdjęcie ${item.id}`}
                             className="h-3/4 w-full object-cover"
                             onClick={() => handleProductClick(item.id)}
