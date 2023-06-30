@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 import data from '../components/data.json';
+import img from '../../images/astronauta_projektor.jpg'
 
 const PhotoGallery = () => {
     const [selectedProduct, setSelectedProduct] = useState(null);
@@ -36,7 +37,7 @@ const PhotoGallery = () => {
                 {data.map((item) => (
                     <div key={item.id} className="bg-gray-100 shadow-xl rounded-lg overflow-hidden shadow-sm h-96 mx-auto w-80 md:w-11/12">
                         <img
-                            src={item.url}
+                            src={img}
                             alt={`Zdjęcie ${item.id}`}
                             className="h-3/4 w-full object-cover"
                             onClick={() => handleProductClick(item.id)}
