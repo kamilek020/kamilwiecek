@@ -1,16 +1,26 @@
 import React, { useState, useEffect, useRef } from 'react';
 import data from '../components/data-tests.json';
+
 const PhotoGallery = () => {
     const [selectedProduct, setSelectedProduct] = useState(null);
     const [currentCategory, setCurrentCategory] = useState('all');
+    const [isOverlayVisible, setIsOverlayVisible] = useState(false);
 
     const handleProductClick = (productId) => {
         const product = data.find((item) => item.id === productId);
         setSelectedProduct(product);
+        setIsOverlayVisible(true);
     };
 
     const closeDetails = () => {
         setSelectedProduct(null);
+        setIsOverlayVisible(false);
+    };
+
+    const handleOverlayClick = (event) => {
+        if (event.target === event.currentTarget) {
+            closeDetails();
+        }
     };
 
     const galleryContainerRef = useRef(null);
@@ -63,6 +73,16 @@ const PhotoGallery = () => {
                 </button>
                 <button
                     className={`${
+                        currentCategory === 'bestseller'
+                            ? 'bg-indigo-500 text-white'
+                            : 'bg-gray-300 text-gray-600'
+                    } px-4 py-2 rounded ml-2`}
+                    onClick={() => filterProductsByCategory('bestseller')}
+                >
+                    Bestseller
+                </button>
+                <button
+                    className={`${
                         currentCategory === 'dom'
                             ? 'bg-indigo-500 text-white'
                             : 'bg-gray-300 text-gray-600'
@@ -96,7 +116,7 @@ const PhotoGallery = () => {
                 {filteredData.map((item) => (
                     <div
                         key={item.id}
-                        className="bg-gray-100 shadow-xl rounded-lg overflow-hidden shadow-sm h-96 mx-auto w-80 md:w-11/12"
+                        className="text-white shadow-xl rounded-lg overflow-hidden shadow-sm mx-auto w-80 md:w-11/12"
                     >
                         <div className="relative">
                             {item.isBestseller && (
@@ -107,24 +127,29 @@ const PhotoGallery = () => {
                             <img
                                 src={item.url}
                                 alt={`Zdjęcie ${item.id}`}
-                                className="h-3/4 w-full object-cover"
+                                className="h-3/4 w-full object-cover cursor-pointer"
                                 onClick={() => handleProductClick(item.id)}
                             />
-                        </div>
-                        <div className="p-4 h-1/4">
-                            <h2
-                                className={`text-lg font-semibold ${
-                                    item.name.length > 40 ? 'truncate' : ''
-                                }`}
-                            >
-                                {item.name}
-                            </h2>
+                            <div className="absolute bottom-0 left-0 w-full text-gray-500 p-2">
+                                <h2
+                                    className={`text-lg font-semibold ${
+                                        item.name.length > 40 ? 'truncate' : ''
+                                    }`}
+                                >
+                                    {item.name}
+                                </h2>
+                            </div>
                         </div>
                     </div>
                 ))}
             </div>
             {selectedProduct && (
-                <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-75">
+                <div
+                    className={`fixed inset-0 flex items-center justify-center bg-black bg-opacity-75 ${
+                        isOverlayVisible ? '' : 'hidden'
+                    }`}
+                    onClick={handleOverlayClick}
+                >
                     <div className="max-w-2xl bg-white rounded-lg p-4">
                         <img
                             src={selectedProduct.url}
@@ -132,9 +157,7 @@ const PhotoGallery = () => {
                             className="w-full h-auto"
                         />
                         <h2 className="text-xl font-bold mt-2">{selectedProduct.name}</h2>
-                        <p className="text-gray-500">
-                            Dostępność: {selectedProduct.quantity} szt.
-                        </p>
+                        <p className="text-gray-500">Dostępność: {selectedProduct.quantity} szt.</p>
                         <p className="text-gray-500">Cena: {selectedProduct.price}</p>
                         <p className="text-gray-500">{selectedProduct.description}</p>
                         <button
@@ -146,7 +169,6 @@ const PhotoGallery = () => {
                     </div>
                 </div>
             )}
-
         </div>
     );
 };

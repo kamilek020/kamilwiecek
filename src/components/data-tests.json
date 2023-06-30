@@ -5,18 +5,68 @@
     "name": "PROJEKTOR ASTRONAUTA",
     "quantity": 150,
     "price": "Widoczne po zalogowaniu",
-    "description": "Dostępność: 150szt.",
+    "description": "Za pomocą naszego projektora będziesz mógł stworzyć niesamowity, relaksujący klimat. Zatop się w pięknej galaktyce lub gwieździstym niebie. Do dyspozycji masz aż 8 różnych trybów projekcji, co pozwala na dobranie odpowiedniego oświetlenia do swojego nastroju. ",
     "categories": ["dom", "elektronika"],
-    "isBestseller": true
+    "isBestseller": false
   },
   {
     "id": 2,
-    "url": "images/astronauta_projektor.jpg",
-    "name": "PROJEKTOR ASTRONAUTA",
-    "quantity": 150,
+    "url": "images/led510.jpg",
+    "name": "TAŚMA LED 5 METRÓW",
+    "quantity": 2000,
     "price": "Widoczne po zalogowaniu",
-    "description": "Dostępność: 150szt.",
-    "categories": ["dom", "elektronika"],
+    "description": "Nasz produkt posiada aż 54 diod na metr! Większość taśm LED działa jedynie na zasadzie pilota. Nasz produkt również wyposażony jest w specjalny pilot, jednak światłem sterować możesz również za pomocą systemu Bluetooth oraz dedykowanej aplikacji! ",
+    "categories": ["dom", "elektronika", "bestseller"],
     "isBestseller": true
+  },
+  {
+    "id": 3,
+    "url": "images/led510.jpg",
+    "name": "TAŚMA LED 10 METRÓW",
+    "quantity": 2000,
+    "price": "Widoczne po zalogowaniu",
+    "description": "Nasz produkt posiada aż 54 diod na metr! Większość taśm LED działa jedynie na zasadzie pilota. Nasz produkt również wyposażony jest w specjalny pilot, jednak światłem sterować możesz również za pomocą systemu Bluetooth oraz dedykowanej aplikacji! ",
+    "categories": ["dom", "elektronika", "bestseller"],
+    "isBestseller": true
+  },
+  {
+    "id": 4,
+    "url": "images/sunset-lamp.jpg",
+    "name": "SUNSET LAMPA",
+    "quantity": 500,
+    "price": "Widoczne po zalogowaniu",
+    "description": "Nasza lampa świetnie sprawdzi się jako element dekoracji pomieszczenia, ale nie tylko. Dzięki niej stworzysz wspaniałe tło na zdjęcia, stworzysz uspokajającą atmosferę w pokoju dziecięcym czy sypialni, a dzięki możliwości wyboru światła białego możesz korzystać z niej również jako lampki biurowej czy nocnej.",
+    "categories": ["dom", "elektronika", "bestseller"],
+    "isBestseller": true
+  },
+  {
+    "id": 5,
+    "url": "images/orgaznier-bizu.png",
+    "name": "ORGANIZER NA BIŻUTERIĘ",
+    "quantity": 200,
+    "price": "Widoczne po zalogowaniu",
+    "description": "W środku znajdziemy idealnie wyprofilowane, delikatne przegródki na pierścionki, łańcuszki, kolczyki oraz bransoletki i inne drobiazgi.",
+    "categories": ["dom"],
+    "isBestseller": false
+  },
+  {
+    "id": 6,
+    "url": "images/projektor-zwykly.jpg",
+    "name": "PROJEKTOR GWIAZD",
+    "quantity": 300,
+    "price": "Widoczne po zalogowaniu",
+    "description": "Efektywna dekoracja na każdą okazję! Ten lekki oraz nowoczesny projektor jest idealny na Boże Narodzenie, przyjęcia, wesela, urodziny, Halloween, Wielkanoc, rocznicę i inne okazje świąteczne lub okolicznościowe. Stwórz romantyczny, gwiaździsty świat, aby zafascynować swoją rodzinę, przyjaciół a zwłaszcza dzieci.",
+    "categories": ["dom", "elektronika"],
+    "isBestseller": false
+  },
+  {
+    "id": 7,
+    "url": "images/cazki.png",
+    "name": "CĄŻKI DO WRASTAJĄCYCH PAZNOKCI",
+    "quantity": 700,
+    "price": "Widoczne po zalogowaniu",
+    "description": "Efektywna dekoracja na każdą okazję! Ten lekki oraz nowoczesny projektor jest idealny na Boże Narodzenie, przyjęcia, wesela, urodziny, Halloween, Wielkanoc, rocznicę i inne okazje świąteczne lub okolicznościowe. Stwórz romantyczny, gwiaździsty świat, aby zafascynować swoją rodzinę, przyjaciół a zwłaszcza dzieci.",
+    "categories": ["dom"],
+    "isBestseller": false
   }
 ]

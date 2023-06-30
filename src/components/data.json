@@ -43,5 +43,14 @@
     "quantity": 20,
     "price": "Widoczne po zalogowaniu",
     "description": "Szczegóły produktu 1"
+  },
+  {
+    "id": 5,
+    "url": "images/projektor-zwykly.jpg",
+    "name": "PROJEKTOR GWIAZD",
+    "category": "dom",
+    "quantity": 20,
+    "price": "Widoczne po zalogowaniu",
+    "description": "Szczegóły produktu 1"
   }
 ]
