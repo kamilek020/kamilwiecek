@@ -65,7 +65,7 @@ const PhotoGallery = () => {
                     className={`${
                         currentCategory === 'all'
                             ? 'bg-indigo-500 text-white'
-                            : 'bg-gray-300 text-gray-600'
+                            : 'bg-gray-300 my-2 text-gray-600'
                     } px-4 py-2 rounded`}
                     onClick={() => filterProductsByCategory('all')}
                 >
@@ -76,7 +76,7 @@ const PhotoGallery = () => {
                         currentCategory === 'bestseller'
                             ? 'bg-indigo-500 text-white'
                             : 'bg-gray-300 text-gray-600'
-                    } px-4 py-2 rounded ml-2`}
+                    } px-4 py-2 rounded my-2 ml-2`}
                     onClick={() => filterProductsByCategory('bestseller')}
                 >
                     Bestseller
@@ -86,7 +86,7 @@ const PhotoGallery = () => {
                         currentCategory === 'dom'
                             ? 'bg-indigo-500 text-white'
                             : 'bg-gray-300 text-gray-600'
-                    } px-4 py-2 rounded ml-2`}
+                    } px-4 py-2 rounded  my-2 ml-2`}
                     onClick={() => filterProductsByCategory('dom')}
                 >
                     Dom
@@ -96,7 +96,7 @@ const PhotoGallery = () => {
                         currentCategory === 'ogród'
                             ? 'bg-indigo-500 text-white'
                             : 'bg-gray-300 text-gray-600'
-                    } px-4 py-2 rounded ml-2`}
+                    } px-4 py-2 rounded my-2 ml-2`}
                     onClick={() => filterProductsByCategory('ogród')}
                 >
                     Ogród
@@ -106,10 +106,30 @@ const PhotoGallery = () => {
                         currentCategory === 'elektronika'
                             ? 'bg-indigo-500 text-white'
                             : 'bg-gray-300 text-gray-600'
-                    } px-4 py-2 rounded ml-2`}
+                    } px-4 py-2 rounded my-2 ml-2`}
                     onClick={() => filterProductsByCategory('elektronika')}
                 >
                     Elektronika
+                </button>
+                <button
+                    className={`${
+                        currentCategory === 'samochód'
+                            ? 'bg-indigo-500 text-white'
+                            : 'bg-gray-300 text-gray-600'
+                    } px-4 py-2 rounded my-2 ml-2`}
+                    onClick={() => filterProductsByCategory('samochód')}
+                >
+                    Samochód
+                </button>
+                <button
+                    className={`${
+                        currentCategory === 'łazienka'
+                            ? 'bg-indigo-500 text-white'
+                            : 'bg-gray-300 text-gray-600'
+                    } px-4 py-2 rounded my-2 ml-2`}
+                    onClick={() => filterProductsByCategory('łazienka')}
+                >
+                    Łazienka
                 </button>
             </div>
             <div className="grid gap-4 grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 xl:grid-cols-3">

@@ -65,8 +65,138 @@
     "name": "CĄŻKI DO WRASTAJĄCYCH PAZNOKCI",
     "quantity": 700,
     "price": "Widoczne po zalogowaniu",
-    "description": "Efektywna dekoracja na każdą okazję! Ten lekki oraz nowoczesny projektor jest idealny na Boże Narodzenie, przyjęcia, wesela, urodziny, Halloween, Wielkanoc, rocznicę i inne okazje świąteczne lub okolicznościowe. Stwórz romantyczny, gwiaździsty świat, aby zafascynować swoją rodzinę, przyjaciół a zwłaszcza dzieci.",
+    "description": "Do produkcji cążków zastosowano najwyższej jakości materiały, między innymi hipoalergiczną stal wolframową. Dzięki niej produkt jest odporny na ścieranie, korozję czy zarysowania.",
     "categories": ["dom"],
+    "isBestseller": false
+  },
+  {
+    "id": 8,
+    "url": "images/organizer-ubrania.png",
+    "name": "ORGANIZER NA UBRANIA",
+    "quantity": 2000,
+    "price": "Widoczne po zalogowaniu",
+    "description": "Nasz organizer wyposażony jest w aż 7 przegródek. Prosta budowa gwarantuje łatwy montaż oraz możliwość ekspresowego wyczyszczenia. Jest wykonany z wysokiej jakości materiałów dzięki czemu nie ulega zniszczeniom",
+    "categories": ["dom", "bestseller"],
+    "isBestseller": true
+  },
+  {
+    "id": 9,
+    "url": "images/odstraszacz-krety.png",
+    "name": "ODSTRASZACZ NA KRETY",
+    "quantity": 4000,
+    "price": "Widoczne po zalogowaniu",
+    "description": "ŁĄCZNY ZASIĘG DZIAŁANIA DWÓCH ODSTRASZACZY TO AŻ 1300m2 ! Zmienna\nczęstotliwość nadawania sygnału, ładowanie solarne, odporne na deszcz i wilgoć.",
+    "categories": ["ogród"],
+    "isBestseller": false
+  },
+  {
+    "id": 10,
+    "url": "images/uchwyt-gabka.png",
+    "name": "UCHWYT NA GĄBKĘ",
+    "quantity": 2000,
+    "price": "Widoczne po zalogowaniu",
+    "description": "Dzięki otwartej konstrukcji wieszaka gąbka będzie mogła szybko wyschnąć. Uchwyt jest bardzo trwały - wyposażony w świetną taśmę firmy 3M, co gwarantuje możliwość bezproblemowego kontaktu z wodą.",
+    "categories": ["dom"],
+    "isBestseller": false
+  },
+  {
+    "id": 11,
+    "url": "images/suszarka-pies.png",
+    "name": "SUSZARKA ZE SZCZOTKĄ DLA PSA",
+    "quantity": 250,
+    "price": "Widoczne po zalogowaniu",
+    "description": "Urządzenie to połączenie suszarki i szczotki - możesz w tym samym momencie czesać swojego pupila i suszyć go po kąpieli. Dzięki temu oszczędzasz mu stres związany z długą pielęgnacją, której pupile nie zawsze lubią się poddawać.",
+    "categories": ["dom"],
+    "isBestseller": false
+  },
+  {
+    "id": 12,
+    "url": "images/zestaw-manicure.png",
+    "name": "ZESTAW DO MANICURE PEDICURE DO PAZNOKCI 20ELEMENTÓW + ETUI",
+    "quantity": 300,
+    "price": "Widoczne po zalogowaniu",
+    "description": "Kompletny zestaw narzędzi dostosowany do każdej sytuacji, w zestawie znajdziesz narzędzia potrzebne do pielęgnacji dłoni, stóp oraz twarzy. Przenośna, praktyczna kabura ze sztucznej skóry, otwierana za pomocą jednego przycisku",
+    "categories": ["dom"],
+    "isBestseller": false
+  },
+  {
+    "id": 13,
+    "url": "images/sluchawka-eco.png",
+    "name": "OSZCZĘDNA SŁUCHAWKA PRYSZNICOWA",
+    "quantity": 200,
+    "price": "Widoczne po zalogowaniu",
+    "description": "Woda leci z wyjątkowo dużym ciśnieniem co pozwala na mniejsze zużycie nawet o 50%. Słuchawka została wyposażona w system napowietrzania wody, wspomaga on zmniejszenie twardości wody oraz pozbycie się nieprzyjemnych zapachów.",
+    "categories": ["dom", "łazienka"],
+    "isBestseller": false
+  },
+  {
+    "id": 14,
+    "url": "images/sw-mango.png",
+    "name": "VANICANDLE - Swieczka MANGO 180/400G",
+    "quantity": 50,
+    "price": "Widoczne po zalogowaniu",
+    "description": "Fresh Mango to świeca sojowa o przyjemnym orzeźwiającym aromacie z nutą słodyczy. Zapachem przypomina egzotyczny koktajl owocowy!",
+    "categories": ["dom"],
+    "isBestseller": false
+  },
+  {
+    "id": 15,
+    "url": "images/sw-vanilia.png",
+    "name": "VANICANDLE - Swieczka VANILLA 180/400G",
+    "quantity": 50,
+    "price": "Widoczne po zalogowaniu",
+    "description": "Jeśli uwielbiasz desery, szczególnie te z wanilią i kokosem – zakochasz się w tym zapachu! Świeca sojowa Vanilla Ice Cream to… słodycz sama w sobie. Zapachem przypomina aksamitne lody waniliowe.",
+    "categories": ["dom"],
+    "isBestseller": false
+  },
+  {
+    "id": 16,
+    "url": "images/sw-piwonia.png",
+    "name": "VANICANDLE - Swieczka PIWONIA 180/400G",
+    "quantity": 50,
+    "price": "Widoczne po zalogowaniu",
+    "description": "Słodki, kobiecy i sensualny – to określenia idealnie opisujące zapach świecy sojowej Peony Petals. Urzeknie Cię intensywnym zapachem świeżo ściętych piwonii, przenosząc do letniego ogrodu tonącego w promieniach słońca.",
+    "categories": ["dom"],
+    "isBestseller": false
+  },
+  {
+    "id": 17,
+    "url": "images/sw-ciasto.png",
+    "name": "VANICANDLE - Swieczka RASPBERRY 180/400G",
+    "quantity": 50,
+    "price": "Widoczne po zalogowaniu",
+    "description": "Świeca sojowa Raspberry Cake pachnie niczym… pyszny tort malinowy! Jeśli jesteś miłośnikiem deserów, jej intensywny aromat z pewnością przypadnie Ci do gustu.",
+    "categories": ["dom"],
+    "isBestseller": false
+  },
+  {
+    "id": 18,
+    "url": "images/miska-pies.png",
+    "name": "EDUKACYJNA MISKA DLA PSA",
+    "quantity": 200,
+    "price": "Widoczne po zalogowaniu",
+    "description": "Twój pies będzie mógł przesuwać elementy w zabawce za pomocą łap, zębów\nczy nosa. Odsłonięcie każdego otworu sprawi ogromną radość zwierzątku,gdy zobaczy w niej swój ulubiony smaczek!",
+    "categories": ["dom"],
+    "isBestseller": false
+  },
+  {
+    "id": 19,
+    "url": "images/polka-lazienkowa.png",
+    "name": "PÓŁKA ŁAZIENKOWA NAROŻNA POD PRYSZNIC",
+    "quantity": 200,
+    "price": "Widoczne po zalogowaniu",
+    "description": "Półka jest gładka, ma zaokrąglone krawędzie i wykończona jest na kolor głębokiej matowej czerni. Dodatkowe haczyki ułatwiają korzystanie z myjek i gąbek.",
+    "categories": ["dom", "łazienka"],
+    "isBestseller": false
+  },
+  {
+    "id": 20,
+    "url": "images/spinki-samochod.png",
+    "name": "ZESTAW SPINEK SAMOCHODOWYCH 620SZT",
+    "quantity": 500,
+    "price": "Widoczne po zalogowaniu",
+    "description": "100% nowy i wysokiej jakości produkt. Szeroko stosowany do błotników, zderzaków, drzwi lub innych powierzchni samochodu. Trwałe tworzywo sztuczne zapewniające długą żywotność.",
+    "categories": ["samochód"],
     "isBestseller": false
   }
 ]
