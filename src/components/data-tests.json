@@ -1,0 +1,22 @@
+[
+  {
+    "id": 1,
+    "url": "images/astronauta_projektor.jpg",
+    "name": "PROJEKTOR ASTRONAUTA",
+    "quantity": 150,
+    "price": "Widoczne po zalogowaniu",
+    "description": "Dostępność: 150szt.",
+    "categories": ["dom", "elektronika"],
+    "isBestseller": true
+  },
+  {
+    "id": 2,
+    "url": "images/astronauta_projektor.jpg",
+    "name": "PROJEKTOR ASTRONAUTA",
+    "quantity": 150,
+    "price": "Widoczne po zalogowaniu",
+    "description": "Dostępność: 150szt.",
+    "categories": ["dom", "elektronika"],
+    "isBestseller": true
+  }
+]

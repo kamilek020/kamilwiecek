@@ -2,7 +2,7 @@ import React from 'react';
 
 const ImportantInfoSection = () => {
     return (
-        <section className="bg-gray-200 py-8">
+        <section className=" py-8">
             <div className="max-w-4xl mx-auto px-4 py-4">
                 <h2 className="text-3xl font-semibold mb-4">Najważniejsze informacje dotyczące zamówień!</h2>
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">

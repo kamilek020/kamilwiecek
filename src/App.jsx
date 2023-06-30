@@ -5,11 +5,12 @@ import ImportantInfoSection from "./components/ImportantInfoSection.jsx";
 import Footer from "./components/Footer.jsx";
 import Header from "./components/header.jsx";
 
+
 function App() {
 
   return (
     <div className="App">
-        <Header></Header>
+        <Header />
         <PhotoGallery />
         <div className="mt-10">
             {/*<ContactForm */}
