@@ -12,20 +12,6 @@ const PhotoGallery = () => {
     const closeDetails = () => {
         setSelectedProduct(null);
     };
-    
-    const infoCard = ({id, url, name}) => {
-        <div key={id} className="bg-gray-100 shadow-xl rounded-lg overflow-hidden shadow-sm h-96 mx-auto w-80 md:w-11/12">
-                        <img
-                            src={url}
-                            alt={`Zdjęcie ${id}`}
-                            className="h-3/4 w-full object-cover"
-                            onClick={() => handleProductClick(id)}
-                        />
-                        <div className="p-4 h-1/4">
-                            <h2 className={`text-lg font-semibold ${name.length > 40 ? 'truncate' : ''}`}>{name}</h2>
-                        </div>
-                    </div>
-    };
 
     const galleryContainerRef = useRef(null);
 
