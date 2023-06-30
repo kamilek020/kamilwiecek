@@ -59,7 +59,7 @@ const PhotoGallery = () => {
             );
 
     return (
-        <div className="mt-8 mx-auto max-w-4xl" ref={galleryContainerRef}>
+        <div className="mt-8 mx-auto max-w-4xl">
             <div className="mb-4">
                 <button
                     className={`${
@@ -132,7 +132,7 @@ const PhotoGallery = () => {
                     Łazienka
                 </button>
             </div>
-            <div className="grid gap-4 grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 xl:grid-cols-3">
+            <div className="grid gap-4 grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 xl:grid-cols-3" ref={galleryContainerRef}>
                 {filteredData.map((item) => (
                     <div
                         key={item.id}
@@ -170,7 +170,7 @@ const PhotoGallery = () => {
                     }`}
                     onClick={handleOverlayClick}
                 >
-                    <div className="max-w-2xl bg-white rounded-lg p-4">
+                    <div className="max-w-sm md:max-w-md bg-white rounded-lg p-4">
                         <img
                             src={selectedProduct.url}
                             alt={`Zdjęcie ${selectedProduct.id}`}
