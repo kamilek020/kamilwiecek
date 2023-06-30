@@ -5,6 +5,7 @@ const PhotoGallery = () => {
     const [selectedProduct, setSelectedProduct] = useState(null);
     const [currentCategory, setCurrentCategory] = useState('all');
     const [isOverlayVisible, setIsOverlayVisible] = useState(false);
+    const [categoryCounts, setCategoryCounts] = useState({});
 
     const handleProductClick = (productId) => {
         const product = data.find((item) => item.id === productId);
@@ -45,6 +46,18 @@ const PhotoGallery = () => {
         };
     }, []);
 
+    useEffect(() => {
+        const counts = {};
+
+        data.forEach((item) => {
+            item.categories.forEach((category) => {
+                counts[category] = (counts[category] || 0) + 1;
+            });
+        });
+
+        setCategoryCounts(counts);
+    }, []);
+
     const filterProductsByCategory = (category) => {
         setCurrentCategory(category);
     };
@@ -69,68 +82,21 @@ const PhotoGallery = () => {
                     } px-4 py-2 rounded`}
                     onClick={() => filterProductsByCategory('all')}
                 >
-                    Wszystkie
+                    Wszystkie ({data.length})
                 </button>
-                <button
-                    className={`${
-                        currentCategory === 'bestseller'
-                            ? 'bg-indigo-500 text-white'
-                            : 'bg-gray-300 text-gray-600'
-                    } px-4 py-2 rounded my-2 ml-2`}
-                    onClick={() => filterProductsByCategory('bestseller')}
-                >
-                    Bestseller
-                </button>
-                <button
-                    className={`${
-                        currentCategory === 'dom'
-                            ? 'bg-indigo-500 text-white'
-                            : 'bg-gray-300 text-gray-600'
-                    } px-4 py-2 rounded  my-2 ml-2`}
-                    onClick={() => filterProductsByCategory('dom')}
-                >
-                    Dom
-                </button>
-                <button
-                    className={`${
-                        currentCategory === 'ogród'
-                            ? 'bg-indigo-500 text-white'
-                            : 'bg-gray-300 text-gray-600'
-                    } px-4 py-2 rounded my-2 ml-2`}
-                    onClick={() => filterProductsByCategory('ogród')}
-                >
-                    Ogród
-                </button>
-                <button
-                    className={`${
-                        currentCategory === 'elektronika'
-                            ? 'bg-indigo-500 text-white'
-                            : 'bg-gray-300 text-gray-600'
-                    } px-4 py-2 rounded my-2 ml-2`}
-                    onClick={() => filterProductsByCategory('elektronika')}
-                >
-                    Elektronika
-                </button>
-                <button
-                    className={`${
-                        currentCategory === 'samochód'
-                            ? 'bg-indigo-500 text-white'
-                            : 'bg-gray-300 text-gray-600'
-                    } px-4 py-2 rounded my-2 ml-2`}
-                    onClick={() => filterProductsByCategory('samochód')}
-                >
-                    Samochód
-                </button>
-                <button
-                    className={`${
-                        currentCategory === 'łazienka'
-                            ? 'bg-indigo-500 text-white'
-                            : 'bg-gray-300 text-gray-600'
-                    } px-4 py-2 rounded my-2 ml-2`}
-                    onClick={() => filterProductsByCategory('łazienka')}
-                >
-                    Łazienka
-                </button>
+                {Object.keys(categoryCounts).map((category) => (
+                    <button
+                        key={category}
+                        className={`${
+                            currentCategory === category
+                                ? 'bg-indigo-500 text-white'
+                                : 'bg-gray-300 text-gray-600'
+                        } px-4 py-2 rounded my-2 ml-2`}
+                        onClick={() => filterProductsByCategory(category)}
+                    >
+                        {category} ({categoryCounts[category] || 0})
+                    </button>
+                ))}
             </div>
             <div className="grid gap-4 grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 xl:grid-cols-3" ref={galleryContainerRef}>
                 {filteredData.map((item) => (
