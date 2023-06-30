@@ -9,7 +9,7 @@
   },
   {
     "id": 2,
-    "url": "images/images/led510.jpg",
+    "url": "images/led510.jpg",
     "name": "TAŚMA LED 5 METRÓW",
     "quantity": 50,
     "price": 49.99,
@@ -57,7 +57,7 @@
   },
   {
     "id": 8,
-    "url": "dist/images/projektor-zwykly.jpg",
+    "url": "images/projektor-zwykly.jpg",
     "name": "PROJEKTOR GWIAZD",
     "quantity": 60,
     "price": 79.99,
