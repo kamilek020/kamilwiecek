@@ -1,7 +1,7 @@
 [
   {
     "id": 1,
-    "url": "./dist/images/astronauta_projektor.jpg",
+    "url": "dist/images/astronauta_projektor.jpg",
     "name": "PROJEKTOR ASTRONAUTA",
     "quantity": 150,
     "price": 99.99,
@@ -9,7 +9,7 @@
   },
   {
     "id": 2,
-    "url": "./dist/images/images/led510.jpg",
+    "url": "dist/images/images/led510.jpg",
     "name": "TAŚMA LED 5 METRÓW",
     "quantity": 50,
     "price": 49.99,
@@ -17,7 +17,7 @@
   },
   {
     "id": 3,
-    "url": "./dist/images/led510.jpg",
+    "url": "dist/images/led510.jpg",
     "name": "TAŚMA LED 10 METRÓW",
     "quantity": 30,
     "price": 79.99,
@@ -25,7 +25,7 @@
   },
   {
     "id": 4,
-    "url": "./dist/images/sunset-lamp.jpg",
+    "url": "dist/images/sunset-lamp.jpg",
     "name": "SUNSET LAMPA",
     "quantity": 100,
     "price": 59.99,
@@ -33,7 +33,7 @@
   },
   {
     "id": 5,
-    "url": "./dist/images/orgaznier-bizu.png",
+    "url": "dist/images/orgaznier-bizu.png",
     "name": "ORGANIZER NA BIŻUTERIĘ",
     "quantity": 20,
     "price": 29.99,
@@ -41,7 +41,7 @@
   },
   {
     "id": 6,
-    "url": "./dist/images/projektor-zwykly.jpg",
+    "url": "dist/images/projektor-zwykly.jpg",
     "name": "PROJEKTOR GWIAZD",
     "quantity": 80,
     "price": 69.99,
@@ -49,7 +49,7 @@
   },
   {
     "id": 7,
-    "url": "./dist/images/projektor-zwykly.jpg",
+    "url": "dist/images/projektor-zwykly.jpg",
     "name": "PROJEKTOR GWIAZD",
     "quantity": 120,
     "price": 89.99,
@@ -57,7 +57,7 @@
   },
   {
     "id": 8,
-    "url": "./dist/images/projektor-zwykly.jpg",
+    "url": "dist/images/projektor-zwykly.jpg",
     "name": "PROJEKTOR GWIAZD",
     "quantity": 60,
     "price": 79.99,
