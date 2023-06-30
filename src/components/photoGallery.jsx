@@ -1,6 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
 import data from '../components/data.json';
-import img from '../../images/astronauta_projektor.jpg'
 
 const PhotoGallery = () => {
     const [selectedProduct, setSelectedProduct] = useState(null);
