@@ -48,7 +48,18 @@ const PhotoGallery = () => {
         <div className="mt-8 mx-auto max-w-4xl" ref={galleryContainerRef}>
             <div className="grid gap-4 grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 xl:grid-cols-3">
                 {data.map((item) => (
-                    infoCard(item.id, item.url, item.name)
+                    <div key={item.id} className="bg-gray-100 shadow-xl rounded-lg overflow-hidden shadow-sm h-96 mx-auto w-80 md:w-11/12">
+                        <img
+                            src={img}
+                            alt={`Zdjęcie ${item.id}`}
+                            className="h-3/4 w-full object-cover"
+                            onClick={() => handleProductClick(item.id)}
+                        />
+                        <div className="p-4 h-1/4">
+                            <h2 className={`text-lg font-semibold ${item.name.length > 40 ? 'truncate' : ''}`}>{item.name}</h2>
+                        </div>
+                    </div>
+
                 ))}
             </div>
             {selectedProduct && (
