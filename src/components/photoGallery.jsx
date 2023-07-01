@@ -31,11 +31,15 @@ const PhotoGallery = () => {
         const handleResize = () => {
             const container = galleryContainerRef.current;
             const numColumns =
-                container.offsetWidth >= 640
-                    ? 3
-                    : container.offsetWidth >= 480
-                        ? 2
-                        : 1;
+                container.offsetWidth >= 1280
+                    ? 5
+                    : container.offsetWidth >= 960
+                        ? 4
+                        : container.offsetWidth >= 640
+                            ? 3
+                            : container.offsetWidth >= 480
+                                ? 2
+                                : 1;
             container.style.gridTemplateColumns = `repeat(${numColumns}, 1fr)`;
         };
 
@@ -88,7 +92,7 @@ const PhotoGallery = () => {
                     placeholder="Wyszukaj..."
                     value={searchQuery}
                     onChange={handleSearchChange}
-                    className="px-12 py-2 border rounded"
+                    className="px-4 py-2 border rounded"
                 />
             </div>
             <div className="mb-4">
@@ -117,13 +121,13 @@ const PhotoGallery = () => {
                 ))}
             </div>
             <div
-                className="grid gap-4 grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 xl:grid-cols-3"
+                className="grid gap-4 grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5"
                 ref={galleryContainerRef}
             >
                 {searchResults.map((item) => (
                     <div
                         key={item.id}
-                        className="text-white shadow-xl rounded-lg overflow-hidden shadow-sm mx-auto w-80 md:w-11/12"
+                        className="text-white shadow-xl rounded-lg overflow-hidden shadow-sm mx-auto"
                     >
                         <div className="relative">
                             {item.isBestseller && (
@@ -134,7 +138,7 @@ const PhotoGallery = () => {
                             <img
                                 src={item.url}
                                 alt={`Zdjęcie ${item.id}`}
-                                className="h-3/4 w-full object-cover cursor-pointer"
+                                className="h-64 w-full object-cover cursor-pointer"
                                 onClick={() => handleProductClick(item.id)}
                             />
                             <div className="absolute bottom-0 left-0 w-full text-gray-500 p-2">
