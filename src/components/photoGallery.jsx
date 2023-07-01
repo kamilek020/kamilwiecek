@@ -6,6 +6,9 @@ const PhotoGallery = () => {
     const [currentCategory, setCurrentCategory] = useState('all');
     const [isOverlayVisible, setIsOverlayVisible] = useState(false);
     const [categoryCounts, setCategoryCounts] = useState({});
+    const [currentPage, setCurrentPage] = useState(1);
+    const [productsPerPage] = useState(9);
+    const galleryContainerRef = useRef(null);
 
     const handleProductClick = (productId) => {
         const product = data.find((item) => item.id === productId);
@@ -23,8 +26,6 @@ const PhotoGallery = () => {
             closeDetails();
         }
     };
-
-    const galleryContainerRef = useRef(null);
 
     useEffect(() => {
         const handleResize = () => {
@@ -60,6 +61,8 @@ const PhotoGallery = () => {
 
     const filterProductsByCategory = (category) => {
         setCurrentCategory(category);
+        setCurrentPage(1);
+        scrollToTop();
     };
 
     const filteredData =
@@ -70,6 +73,27 @@ const PhotoGallery = () => {
                     item.categories.includes(currentCategory) &&
                     (!item.isBestseller || item.isBestseller === true)
             );
+
+    // Pagination
+    const indexOfLastProduct = currentPage * productsPerPage;
+    const indexOfFirstProduct = indexOfLastProduct - productsPerPage;
+    const currentProducts = filteredData.slice(
+        indexOfFirstProduct,
+        indexOfLastProduct
+    );
+    const totalPages = Math.ceil(filteredData.length / productsPerPage);
+
+    const paginate = (pageNumber) => {
+        setCurrentPage(pageNumber);
+        scrollToTop();
+    };
+
+    const scrollToTop = () => {
+        window.scrollTo({
+            top: 0,
+            behavior: 'smooth',
+        });
+    };
 
     return (
         <div className="mt-8 mx-auto max-w-4xl">
@@ -98,8 +122,11 @@ const PhotoGallery = () => {
                     </button>
                 ))}
             </div>
-            <div className="grid gap-4 grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 xl:grid-cols-3" ref={galleryContainerRef}>
-                {filteredData.map((item) => (
+            <div
+                className="grid gap-4 grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 xl:grid-cols-3"
+                ref={galleryContainerRef}
+            >
+                {currentProducts.map((item) => (
                     <div
                         key={item.id}
                         className="text-white shadow-xl rounded-lg overflow-hidden shadow-sm mx-auto w-80 md:w-11/12"
@@ -129,6 +156,23 @@ const PhotoGallery = () => {
                     </div>
                 ))}
             </div>
+            <div className="flex justify-center mt-4">
+                {Array.from(Array(totalPages), (_, index) => index + 1).map((page) => (
+                    <button
+                        key={page}
+                        className={`${
+                            currentPage === page
+                                ? 'bg-indigo-500 text-white'
+                                : 'bg-gray-300 text-gray-600'
+                        } px-4 py-2 rounded my-2 mx-1`}
+                        onClick={() => {
+                            paginate(page);
+                        }}
+                    >
+                        {page}
+                    </button>
+                ))}
+            </div>
             {selectedProduct && (
                 <div
                     className={`fixed inset-0 flex items-center justify-center bg-black bg-opacity-75 ${
@@ -143,7 +187,9 @@ const PhotoGallery = () => {
                             className="w-full h-auto"
                         />
                         <h2 className="text-xl font-bold mt-2">{selectedProduct.name}</h2>
-                        <p className="text-gray-500">Dostępność: {selectedProduct.quantity} szt.</p>
+                        <p className="text-gray-500">
+                            Dostępność: {selectedProduct.quantity} szt.
+                        </p>
                         <p className="text-gray-500">Cena: {selectedProduct.price}</p>
                         <p className="text-gray-500">{selectedProduct.description}</p>
                         <button
