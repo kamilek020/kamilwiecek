@@ -7,6 +7,9 @@ const PhotoGallery = () => {
     const [isOverlayVisible, setIsOverlayVisible] = useState(false);
     const [categoryCounts, setCategoryCounts] = useState({});
     const [searchQuery, setSearchQuery] = useState('');
+    const [cartItems, setCartItems] = useState([]);
+    const [isCartModalOpen, setIsCartModalOpen] = useState(false);
+    const cartModalRef = useRef(null);
 
     const handleProductClick = (productId) => {
         const product = data.find((item) => item.id === productId);
@@ -31,15 +34,7 @@ const PhotoGallery = () => {
         const handleResize = () => {
             const container = galleryContainerRef.current;
             const numColumns =
-                container.offsetWidth >= 1280
-                    ? 5
-                    : container.offsetWidth >= 960
-                        ? 4
-                        : container.offsetWidth >= 640
-                            ? 3
-                            : container.offsetWidth >= 480
-                                ? 2
-                                : 1;
+                container.offsetWidth >= 640 ? 3 : container.offsetWidth >= 480 ? 2 : 1;
             container.style.gridTemplateColumns = `repeat(${numColumns}, 1fr)`;
         };
 
@@ -71,6 +66,19 @@ const PhotoGallery = () => {
         setSearchQuery(event.target.value);
     };
 
+    const addToCart = (productId) => {
+        const product = data.find((item) => item.id === productId);
+        setCartItems((prevItems) => [...prevItems, product]);
+    };
+
+    const openCartModal = () => {
+        setIsCartModalOpen(true);
+    };
+
+    const closeCartModal = () => {
+        setIsCartModalOpen(false);
+    };
+
     const filteredData =
         currentCategory === 'all'
             ? data
@@ -92,7 +100,7 @@ const PhotoGallery = () => {
                     placeholder="Wyszukaj..."
                     value={searchQuery}
                     onChange={handleSearchChange}
-                    className="px-4 py-2 border rounded"
+                    className="px-12 py-2 border rounded"
                 />
             </div>
             <div className="mb-4">
@@ -121,13 +129,13 @@ const PhotoGallery = () => {
                 ))}
             </div>
             <div
-                className="grid gap-4 grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5"
+                className="grid gap-4 grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 xl:grid-cols-3"
                 ref={galleryContainerRef}
             >
                 {searchResults.map((item) => (
                     <div
                         key={item.id}
-                        className="text-white shadow-xl rounded-lg overflow-hidden shadow-sm mx-auto"
+                        className="text-white shadow-xl rounded-lg overflow-hidden shadow-sm mx-auto w-80 md:w-11/12"
                     >
                         <div className="relative">
                             {item.isBestseller && (
@@ -138,7 +146,7 @@ const PhotoGallery = () => {
                             <img
                                 src={item.url}
                                 alt={`Zdjęcie ${item.id}`}
-                                className="h-64 w-full object-cover cursor-pointer"
+                                className="h-3/4 w-full object-cover cursor-pointer"
                                 onClick={() => handleProductClick(item.id)}
                             />
                             <div className="absolute bottom-0 left-0 w-full text-gray-500 p-2">
@@ -150,10 +158,49 @@ const PhotoGallery = () => {
                                     {item.name}
                                 </h2>
                             </div>
+                            <button
+                                className="absolute top-2 right-2 bg-indigo-500 text-white px-2 py-1 rounded"
+                                onClick={() => addToCart(item.id)}
+                            >
+                                Dodaj do koszyka
+                            </button>
                         </div>
                     </div>
                 ))}
             </div>
+            {cartItems.length > 0 && (
+                <div className="fixed bottom-0 right-0 p-4">
+                    <button
+                        className="bg-indigo-500 text-white px-4 py-2 rounded"
+                        onClick={openCartModal}
+                    >
+                        Koszyk ({cartItems.length})
+                    </button>
+                </div>
+            )}
+            {isCartModalOpen && (
+                <div
+                    className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-75"
+                    onClick={closeCartModal}
+                >
+                    <div className="max-w-sm md:max-w-md bg-white rounded-lg p-4" ref={cartModalRef}>
+                        <h2 className="text-xl font-bold mb-4">Koszyk</h2>
+                        {cartItems.map((item) => (
+                            <div key={item.id} className="flex items-center mb-4">
+                                <img
+                                    src={item.url}
+                                    alt={`Zdjęcie ${item.id}`}
+                                    className="w-16 h-16 object-cover rounded mr-4"
+                                />
+                                <div>
+                                    <h3 className="text-lg font-semibold">{item.name}</h3>
+                                    <p className="text-gray-500">Cena: {item.price}</p>
+                                </div>
+                            </div>
+                        ))}
+                    </div>
+                </div>
+            )}
             {selectedProduct && (
                 <div
                     className={`fixed inset-0 flex items-center justify-center bg-black bg-opacity-75 ${
