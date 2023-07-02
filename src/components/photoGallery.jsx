@@ -11,6 +11,9 @@ const PhotoGallery = () => {
     const [cartItems, setCartItemsState] = useState(getCartItems());
     const [isCartModalOpen, setIsCartModalOpen] = useState(false);
     const cartModalRef = useRef(null);
+    const galleryContainerRef = useRef(null);
+    const [currentPage, setCurrentPage] = useState(1);
+    const [itemsPerPage] = useState(12);
 
     const handleProductClick = (productId) => {
         const product = data.find((item) => item.id === productId);
@@ -28,8 +31,6 @@ const PhotoGallery = () => {
             closeDetails();
         }
     };
-
-    const galleryContainerRef = useRef(null);
 
     useEffect(() => {
         const handleResize = () => {
@@ -70,10 +71,12 @@ const PhotoGallery = () => {
 
     const filterProductsByCategory = (category) => {
         setCurrentCategory(category);
+        setCurrentPage(1); // Reset current page to 1 when changing category
     };
 
     const handleSearchChange = (event) => {
         setSearchQuery(event.target.value);
+        setCurrentPage(1); // Reset current page to 1 when changing search query
     };
 
     const addToCart = (productId) => {
@@ -124,6 +127,18 @@ const PhotoGallery = () => {
         item.name.toLowerCase().includes(searchQuery.toLowerCase())
     );
 
+    // Pagination
+    const indexOfLastItem = currentPage * itemsPerPage;
+    const indexOfFirstItem = indexOfLastItem - itemsPerPage;
+    const currentItems = searchResults.slice(indexOfFirstItem, indexOfLastItem);
+
+    const totalPages = Math.ceil(searchResults.length / itemsPerPage);
+
+    const paginate = (pageNumber) => {
+        setCurrentPage(pageNumber);
+        window.scrollTo(0, 0); // Scroll to top when changing page
+    };
+
     return (
         <div className="mt-8 mx-auto max-w-4xl">
             <div className="mb-4">
@@ -164,7 +179,7 @@ const PhotoGallery = () => {
                 className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4"
                 ref={galleryContainerRef}
             >
-                {searchResults.map((item) => (
+                {currentItems.map((item) => (
                     <div
                         key={item.id}
                         className="text-white shadow-xl rounded-lg overflow-hidden shadow-sm mb-4"
@@ -196,6 +211,23 @@ const PhotoGallery = () => {
                     </div>
                 ))}
             </div>
+            {searchResults.length > itemsPerPage && (
+                <div className="flex justify-center mt-4">
+                    {Array.from({ length: totalPages }, (_, index) => (
+                        <button
+                            key={index + 1}
+                            onClick={() => paginate(index + 1)}
+                            className={`${
+                                currentPage === index + 1
+                                    ? 'bg-indigo-500 text-white'
+                                    : 'bg-gray-300 text-gray-600'
+                            } px-4 py-2 rounded mx-1`}
+                        >
+                            {index + 1}
+                        </button>
+                    ))}
+                </div>
+            )}
             {cartItems.length > 0 && (
                 <div className="fixed bottom-0 right-0 p-4">
                     <button
@@ -213,11 +245,16 @@ const PhotoGallery = () => {
                 >
                     <div className="max-w-md md:max-w-md bg-white rounded-lg p-4" ref={cartModalRef}>
                         <h2 className="text-xl font-bold mb-4">Koszyk</h2>
+                        <h5 className="text-sm mb-4">Po skonstruowaniu koszyka zrób screena i Mi wyślij</h5>
                         {cartItems.map((item) => (
                             <div key={item.id} className="mb-2 flex justify-between items-center">
                                 <div className="flex items-center">
                                     <div className="w-12 h-12 rounded-full overflow-hidden border border-gray-300 flex-shrink-0 mr-2">
-                                        <img src={item.url} alt={`Zdjęcie ${item.id}`} className="w-full h-full object-cover" />
+                                        <img
+                                            src={item.url}
+                                            alt={`Zdjęcie ${item.id}`}
+                                            className="w-full h-full object-cover"
+                                        />
                                     </div>
                                     <span className="text-gray-800">{item.name}</span>
                                 </div>
@@ -269,18 +306,3 @@ const PhotoGallery = () => {
 };
 
 export default PhotoGallery;
-
-
-{/*
-<button
-    className="bg-red-500 text-white px-2 py-1 ml-1 rounded"
-    onClick={(event) => {
-        event.stopPropagation();
-        removeFromCart(item.id);
-    }}
->
-    Usuń
-</button>
-
-
-*/}
