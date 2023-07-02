@@ -33,9 +33,18 @@ const PhotoGallery = () => {
     useEffect(() => {
         const handleResize = () => {
             const container = galleryContainerRef.current;
-            const numColumns =
-                container.offsetWidth >= 640 ? 3 : container.offsetWidth >= 480 ? 2 : 1;
-            container.style.gridTemplateColumns = `repeat(${numColumns}, 1fr)`;
+            const containerWidth = container.offsetWidth;
+            let numColumns;
+
+            if (containerWidth < 640) {
+                numColumns = 1;
+            } else if (containerWidth < 768) {
+                numColumns = 2;
+            } else {
+                numColumns = 3;
+            }
+
+            container.style.setProperty('--num-columns', numColumns);
         };
 
         handleResize();
@@ -128,16 +137,13 @@ const PhotoGallery = () => {
                     </button>
                 ))}
             </div>
-            <div
-                className="grid gap-4 grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 xl:grid-cols-3"
-                ref={galleryContainerRef}
-            >
+            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4" ref={galleryContainerRef}>
                 {searchResults.map((item) => (
                     <div
                         key={item.id}
-                        className="text-white shadow-xl rounded-lg overflow-hidden shadow-sm mx-auto w-80 md:w-11/12"
+                        className="text-white shadow-xl rounded-lg overflow-hidden shadow-sm mb-4"
                     >
-                        <div className="relative">
+                        <div className="relative h-48">
                             {item.isBestseller && (
                                 <div className="bg-yellow-500 text-white text-center px-2 py-1 absolute top-0 right-0">
                                     Bestseller
@@ -146,20 +152,14 @@ const PhotoGallery = () => {
                             <img
                                 src={item.url}
                                 alt={`Zdjęcie ${item.id}`}
-                                className="h-3/4 w-full object-cover cursor-pointer"
+                                className="w-full h-full object-cover cursor-pointer"
                                 onClick={() => handleProductClick(item.id)}
                             />
-                            <div className="absolute bottom-0 left-0 w-full text-gray-500 p-2">
-                                <h2
-                                    className={`text-lg font-semibold ${
-                                        item.name.length > 40 ? 'truncate' : ''
-                                    }`}
-                                >
-                                    {item.name}
-                                </h2>
-                            </div>
+                        </div>
+                        <div className="px-4 py-2">
+                            <h2 className="text-lg font-semibold truncate text-gray-500">{item.name}</h2>
                             <button
-                                className="absolute top-2 right-2 bg-indigo-500 text-white px-2 py-1 rounded"
+                                className="mt-2 bg-indigo-500 text-white px-2 py-1 rounded"
                                 onClick={() => addToCart(item.id)}
                             >
                                 Dodaj do koszyka
@@ -209,23 +209,13 @@ const PhotoGallery = () => {
                     onClick={handleOverlayClick}
                 >
                     <div className="max-w-sm md:max-w-md bg-white rounded-lg p-4">
+                        <h2 className="text-xl font-bold mb-4">{selectedProduct.name}</h2>
                         <img
                             src={selectedProduct.url}
                             alt={`Zdjęcie ${selectedProduct.id}`}
-                            className="w-full h-auto"
+                            className="w-full h-64 object-cover mb-4"
                         />
-                        <h2 className="text-xl font-bold mt-2">{selectedProduct.name}</h2>
-                        <p className="text-gray-500">
-                            Dostępność: {selectedProduct.quantity} szt.
-                        </p>
-                        <p className="text-gray-500">Cena: {selectedProduct.price}</p>
                         <p className="text-gray-500">{selectedProduct.description}</p>
-                        <button
-                            className="bg-gray-800 text-white px-4 py-2 rounded mt-4"
-                            onClick={closeDetails}
-                        >
-                            Zamknij
-                        </button>
                     </div>
                 </div>
             )}
