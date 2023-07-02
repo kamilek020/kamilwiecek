@@ -101,10 +101,20 @@ const PhotoGallery = () => {
         setIsCartModalOpen(false);
     };
 
+    const sortedData = [...data].sort((a, b) => {
+        if (a.isBestseller && !b.isBestseller) {
+            return -1;
+        } else if (!a.isBestseller && b.isBestseller) {
+            return 1;
+        } else {
+            return 0;
+        }
+    });
+
     const filteredData =
         currentCategory === 'all'
-            ? data
-            : data.filter(
+            ? sortedData
+            : sortedData.filter(
                 (item) =>
                     item.categories.includes(currentCategory) &&
                     (!item.isBestseller || item.isBestseller === true)
@@ -201,18 +211,18 @@ const PhotoGallery = () => {
                     className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-75"
                     onClick={closeCartModal}
                 >
-                    <div className="max-w-sm md:max-w-md bg-white rounded-lg p-4" ref={cartModalRef}>
+                    <div className="max-w-md md:max-w-md bg-white rounded-lg p-4" ref={cartModalRef}>
                         <h2 className="text-xl font-bold mb-4">Koszyk</h2>
-                        {cartItems.map((item, index) => (
-                            <div key={`cart-item-${item.id}-${index}`} className="flex items-center mb-4">
-                                <img
-                                    src={item.url}
-                                    alt={`Zdjęcie ${item.id}`}
-                                    className="w-16 h-16 object-cover rounded-full"
-                                />
-                                <p className="ml-2">{item.name}</p>
+                        {cartItems.map((item) => (
+                            <div key={item.id} className="mb-2 flex justify-between items-center">
+                                <div className="flex items-center">
+                                    <div className="w-12 h-12 rounded-full overflow-hidden border border-gray-300 flex-shrink-0 mr-2">
+                                        <img src={item.url} alt={`Zdjęcie ${item.id}`} className="w-full h-full object-cover" />
+                                    </div>
+                                    <span className="text-gray-800">{item.name}</span>
+                                </div>
                                 <button
-                                    className="ml-auto text-red-500"
+                                    className="bg-red-500 text-white px-2 py-1 ml-1 rounded"
                                     onClick={(event) => {
                                         event.stopPropagation();
                                         removeFromCart(item.id);
@@ -223,7 +233,7 @@ const PhotoGallery = () => {
                             </div>
                         ))}
                         <button
-                            className="bg-red-500 text-white px-4 py-2 rounded mt-4 ml-auto"
+                            className="mt-4 bg-indigo-500 text-white px-4 py-2 rounded"
                             onClick={closeCartModal}
                         >
                             Zamknij
@@ -231,40 +241,25 @@ const PhotoGallery = () => {
                     </div>
                 </div>
             )}
-            {isOverlayVisible && selectedProduct && ( // Check if selectedProduct is not null
+            {isOverlayVisible && (
                 <div
-                    className="fixed inset-0 bg-black bg-opacity-75 flex items-center justify-center"
+                    className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-75"
                     onClick={handleOverlayClick}
                 >
-                    <div className="max-w-3xl bg-white p-4">
-                        <div className="flex">
-                            <img
-                                src={selectedProduct.url}
-                                alt={`Zdjęcie ${selectedProduct.id}`}
-                                className="w-1/2"
-                            />
-                            <div className="ml-4">
-                                <h2 className="text-2xl font-semibold mb-4">
-                                    {selectedProduct.name}
-                                </h2>
-                                <p className="text-gray-500">{selectedProduct.description}</p>
-                                <p className="text-xl font-semibold mt-4">
-                                    {selectedProduct.price} zł
-                                </p>
-                                <button
-                                    className="bg-indigo-500 text-white px-4 py-2 rounded mt-4"
-                                    onClick={() => addToCart(selectedProduct.id)}
-                                >
-                                    Dodaj do koszyka
-                                </button>
-                                <button
-                                    className="bg-red-500 text-white px-4 py-2 rounded mt-4 ml-2"
-                                    onClick={closeDetails}
-                                >
-                                    Zamknij
-                                </button>
-                            </div>
-                        </div>
+                    <div className="max-w-2xl bg-white rounded-lg p-8 overflow-y-auto">
+                        <h2 className="text-2xl font-semibold mb-4">{selectedProduct.name}</h2>
+                        <img
+                            src={selectedProduct.url}
+                            alt={`Zdjęcie ${selectedProduct.id}`}
+                            className="w-full mb-4"
+                        />
+                        <p className="text-gray-600">{selectedProduct.description}</p>
+                        <button
+                            className="mt-4 bg-indigo-500 text-white px-4 py-2 rounded"
+                            onClick={closeDetails}
+                        >
+                            Zamknij
+                        </button>
                     </div>
                 </div>
             )}
@@ -273,3 +268,18 @@ const PhotoGallery = () => {
 };
 
 export default PhotoGallery;
+
+
+{/*
+<button
+    className="bg-red-500 text-white px-2 py-1 ml-1 rounded"
+    onClick={(event) => {
+        event.stopPropagation();
+        removeFromCart(item.id);
+    }}
+>
+    Usuń
+</button>
+
+
+*/}
