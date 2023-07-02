@@ -78,14 +78,19 @@ const PhotoGallery = () => {
 
     const addToCart = (productId) => {
         const product = data.find((item) => item.id === productId);
-        const updatedCartItems = [...cartItems, product];
-        setCartItemsState(updatedCartItems);
-        setCartItems(updatedCartItems);
+        setCartItemsState((prevItems) => {
+            const updatedItems = [...prevItems, product];
+            setCartItems(updatedItems);
+            return updatedItems;
+        });
     };
 
     const removeFromCart = (productId) => {
-        const updatedItems = cartItems.filter((item) => item.id !== productId);
-        setCartItems(updatedItems);
+        setCartItemsState((prevItems) => {
+            const updatedItems = prevItems.filter((item) => item.id !== productId);
+            setCartItems(updatedItems);
+            return updatedItems;
+        });
     };
 
     const openCartModal = () => {
@@ -149,9 +154,9 @@ const PhotoGallery = () => {
                 className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4"
                 ref={galleryContainerRef}
             >
-                {searchResults.map((item, index) => (
+                {searchResults.map((item) => (
                     <div
-                        key={`gallery-item-${item.id}-${index}`}
+                        key={item.id}
                         className="text-white shadow-xl rounded-lg overflow-hidden shadow-sm mb-4"
                     >
                         <div className="relative h-48">
@@ -207,15 +212,18 @@ const PhotoGallery = () => {
                                 />
                                 <p className="ml-2">{item.name}</p>
                                 <button
-                                    className="ml-auto bg-red-500 text-white px-2 py-1 rounded"
-                                    onClick={() => removeFromCart(item.id)}
+                                    className="ml-auto text-red-500"
+                                    onClick={(event) => {
+                                        event.stopPropagation();
+                                        removeFromCart(item.id);
+                                    }}
                                 >
                                     Usuń
                                 </button>
                             </div>
                         ))}
                         <button
-                            className="mt-4 bg-indigo-500 text-white px-4 py-2 rounded"
+                            className="bg-red-500 text-white px-4 py-2 rounded mt-4 ml-auto"
                             onClick={closeCartModal}
                         >
                             Zamknij
@@ -223,25 +231,40 @@ const PhotoGallery = () => {
                     </div>
                 </div>
             )}
-            {isOverlayVisible && (
+            {isOverlayVisible && selectedProduct && ( // Check if selectedProduct is not null
                 <div
-                    className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-75"
+                    className="fixed inset-0 bg-black bg-opacity-75 flex items-center justify-center"
                     onClick={handleOverlayClick}
                 >
-                    <div className="max-w-lg bg-white rounded-lg p-8">
-                        <button
-                            className="absolute top-0 right-0 mt-4 mr-4 bg-red-500 text-white px-2 py-1 rounded"
-                            onClick={closeDetails}
-                        >
-                            Zamknij
-                        </button>
-                        <h2 className="text-2xl font-bold mb-4">{selectedProduct?.name}</h2>
-                        <img
-                            src={selectedProduct?.url}
-                            alt={`Zdjęcie ${selectedProduct?.id}`}
-                            className="w-full h-64 object-cover mb-4"
-                        />
-                        <p>{selectedProduct?.description}</p>
+                    <div className="max-w-3xl bg-white p-4">
+                        <div className="flex">
+                            <img
+                                src={selectedProduct.url}
+                                alt={`Zdjęcie ${selectedProduct.id}`}
+                                className="w-1/2"
+                            />
+                            <div className="ml-4">
+                                <h2 className="text-2xl font-semibold mb-4">
+                                    {selectedProduct.name}
+                                </h2>
+                                <p className="text-gray-500">{selectedProduct.description}</p>
+                                <p className="text-xl font-semibold mt-4">
+                                    {selectedProduct.price} zł
+                                </p>
+                                <button
+                                    className="bg-indigo-500 text-white px-4 py-2 rounded mt-4"
+                                    onClick={() => addToCart(selectedProduct.id)}
+                                >
+                                    Dodaj do koszyka
+                                </button>
+                                <button
+                                    className="bg-red-500 text-white px-4 py-2 rounded mt-4 ml-2"
+                                    onClick={closeDetails}
+                                >
+                                    Zamknij
+                                </button>
+                            </div>
+                        </div>
                     </div>
                 </div>
             )}
