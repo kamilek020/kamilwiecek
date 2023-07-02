@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 import data from '../components/data-tests.json';
+import { getCartItems, setCartItems } from '../helpers/storage-helper';
 
 const PhotoGallery = () => {
     const [selectedProduct, setSelectedProduct] = useState(null);
@@ -7,7 +8,7 @@ const PhotoGallery = () => {
     const [isOverlayVisible, setIsOverlayVisible] = useState(false);
     const [categoryCounts, setCategoryCounts] = useState({});
     const [searchQuery, setSearchQuery] = useState('');
-    const [cartItems, setCartItems] = useState([]);
+    const [cartItems, setCartItemsState] = useState(getCartItems());
     const [isCartModalOpen, setIsCartModalOpen] = useState(false);
     const cartModalRef = useRef(null);
 
@@ -77,7 +78,14 @@ const PhotoGallery = () => {
 
     const addToCart = (productId) => {
         const product = data.find((item) => item.id === productId);
-        setCartItems((prevItems) => [...prevItems, product]);
+        const updatedCartItems = [...cartItems, product];
+        setCartItemsState(updatedCartItems);
+        setCartItems(updatedCartItems);
+    };
+
+    const removeFromCart = (productId) => {
+        const updatedItems = cartItems.filter((item) => item.id !== productId);
+        setCartItems(updatedItems);
     };
 
     const openCartModal = () => {
@@ -137,10 +145,13 @@ const PhotoGallery = () => {
                     </button>
                 ))}
             </div>
-            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4" ref={galleryContainerRef}>
-                {searchResults.map((item) => (
+            <div
+                className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4"
+                ref={galleryContainerRef}
+            >
+                {searchResults.map((item, index) => (
                     <div
-                        key={item.id}
+                        key={`gallery-item-${item.id}-${index}`}
                         className="text-white shadow-xl rounded-lg overflow-hidden shadow-sm mb-4"
                     >
                         <div className="relative h-48">
@@ -157,7 +168,9 @@ const PhotoGallery = () => {
                             />
                         </div>
                         <div className="px-4 py-2">
-                            <h2 className="text-lg font-semibold truncate text-gray-500">{item.name}</h2>
+                            <h2 className="text-lg font-semibold truncate text-gray-500">
+                                {item.name}
+                            </h2>
                             <button
                                 className="mt-2 bg-indigo-500 text-white px-2 py-1 rounded"
                                 onClick={() => addToCart(item.id)}
@@ -185,37 +198,50 @@ const PhotoGallery = () => {
                 >
                     <div className="max-w-sm md:max-w-md bg-white rounded-lg p-4" ref={cartModalRef}>
                         <h2 className="text-xl font-bold mb-4">Koszyk</h2>
-                        {cartItems.map((item) => (
-                            <div key={item.id} className="flex items-center mb-4">
+                        {cartItems.map((item, index) => (
+                            <div key={`cart-item-${item.id}-${index}`} className="flex items-center mb-4">
                                 <img
                                     src={item.url}
                                     alt={`Zdjęcie ${item.id}`}
-                                    className="w-16 h-16 object-cover rounded mr-4"
+                                    className="w-16 h-16 object-cover rounded-full"
                                 />
-                                <div>
-                                    <h3 className="text-lg font-semibold">{item.name}</h3>
-                                    <p className="text-gray-500">Cena: {item.price}</p>
-                                </div>
+                                <p className="ml-2">{item.name}</p>
+                                <button
+                                    className="ml-auto bg-red-500 text-white px-2 py-1 rounded"
+                                    onClick={() => removeFromCart(item.id)}
+                                >
+                                    Usuń
+                                </button>
                             </div>
                         ))}
+                        <button
+                            className="mt-4 bg-indigo-500 text-white px-4 py-2 rounded"
+                            onClick={closeCartModal}
+                        >
+                            Zamknij
+                        </button>
                     </div>
                 </div>
             )}
-            {selectedProduct && (
+            {isOverlayVisible && (
                 <div
-                    className={`fixed inset-0 flex items-center justify-center bg-black bg-opacity-75 ${
-                        isOverlayVisible ? '' : 'hidden'
-                    }`}
+                    className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-75"
                     onClick={handleOverlayClick}
                 >
-                    <div className="max-w-sm md:max-w-md bg-white rounded-lg p-4">
-                        <h2 className="text-xl font-bold mb-4">{selectedProduct.name}</h2>
+                    <div className="max-w-lg bg-white rounded-lg p-8">
+                        <button
+                            className="absolute top-0 right-0 mt-4 mr-4 bg-red-500 text-white px-2 py-1 rounded"
+                            onClick={closeDetails}
+                        >
+                            Zamknij
+                        </button>
+                        <h2 className="text-2xl font-bold mb-4">{selectedProduct?.name}</h2>
                         <img
-                            src={selectedProduct.url}
-                            alt={`Zdjęcie ${selectedProduct.id}`}
+                            src={selectedProduct?.url}
+                            alt={`Zdjęcie ${selectedProduct?.id}`}
                             className="w-full h-64 object-cover mb-4"
                         />
-                        <p className="text-gray-500">{selectedProduct.description}</p>
+                        <p>{selectedProduct?.description}</p>
                     </div>
                 </div>
             )}
