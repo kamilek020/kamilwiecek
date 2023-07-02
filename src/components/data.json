@@ -3,54 +3,210 @@
     "id": 1,
     "url": "images/astronauta_projektor.jpg",
     "name": "PROJEKTOR ASTRONAUTA",
-    "category": "elektronika",
     "quantity": 150,
     "price": "Widoczne po zalogowaniu",
-    "description": "Dostępność: 150szt."
+    "description": "Za pomocą naszego projektora będziesz mógł stworzyć niesamowity, relaksujący klimat. Zatop się w pięknej galaktyce lub gwieździstym niebie. Do dyspozycji masz aż 8 różnych trybów projekcji, co pozwala na dobranie odpowiedniego oświetlenia do swojego nastroju. ",
+    "categories": ["dom", "elektronika"],
+    "isBestseller": false
   },
   {
     "id": 2,
     "url": "images/led510.jpg",
     "name": "TAŚMA LED 5 METRÓW",
-    "category": "dom",
-    "quantity": 50,
+    "quantity": 2000,
     "price": "Widoczne po zalogowaniu",
-    "description": "Szczegóły produktu 1"
+    "description": "Nasz produkt posiada aż 54 diod na metr! Większość taśm LED działa jedynie na zasadzie pilota. Nasz produkt również wyposażony jest w specjalny pilot, jednak światłem sterować możesz również za pomocą systemu Bluetooth oraz dedykowanej aplikacji! ",
+    "categories": ["dom", "elektronika", "bestseller"],
+    "isBestseller": true
   },
   {
     "id": 3,
     "url": "images/led510.jpg",
     "name": "TAŚMA LED 10 METRÓW",
-    "category": "dom",
-    "quantity": 30,
+    "quantity": 2000,
     "price": "Widoczne po zalogowaniu",
-    "description": "Szczegóły produktu 1"
+    "description": "Nasz produkt posiada aż 54 diod na metr! Większość taśm LED działa jedynie na zasadzie pilota. Nasz produkt również wyposażony jest w specjalny pilot, jednak światłem sterować możesz również za pomocą systemu Bluetooth oraz dedykowanej aplikacji! ",
+    "categories": ["dom", "elektronika", "bestseller"],
+    "isBestseller": true
   },
   {
     "id": 4,
     "url": "images/sunset-lamp.jpg",
     "name": "SUNSET LAMPA",
-    "category": "dom",
-    "quantity": 100,
+    "quantity": 500,
     "price": "Widoczne po zalogowaniu",
-    "description": "Szczegóły produktu 1"
+    "description": "Nasza lampa świetnie sprawdzi się jako element dekoracji pomieszczenia, ale nie tylko. Dzięki niej stworzysz wspaniałe tło na zdjęcia, stworzysz uspokajającą atmosferę w pokoju dziecięcym czy sypialni, a dzięki możliwości wyboru światła białego możesz korzystać z niej również jako lampki biurowej czy nocnej.",
+    "categories": ["dom", "elektronika", "bestseller"],
+    "isBestseller": true
   },
   {
     "id": 5,
     "url": "images/orgaznier-bizu.png",
     "name": "ORGANIZER NA BIŻUTERIĘ",
-    "category": "dom",
-    "quantity": 20,
+    "quantity": 200,
     "price": "Widoczne po zalogowaniu",
-    "description": "Szczegóły produktu 1"
+    "description": "W środku znajdziemy idealnie wyprofilowane, delikatne przegródki na pierścionki, łańcuszki, kolczyki oraz bransoletki i inne drobiazgi.",
+    "categories": ["dom"],
+    "isBestseller": false
   },
   {
-    "id": 5,
+    "id": 6,
     "url": "images/projektor-zwykly.jpg",
     "name": "PROJEKTOR GWIAZD",
-    "category": "dom",
-    "quantity": 20,
+    "quantity": 300,
     "price": "Widoczne po zalogowaniu",
-    "description": "Szczegóły produktu 1"
+    "description": "Efektywna dekoracja na każdą okazję! Ten lekki oraz nowoczesny projektor jest idealny na Boże Narodzenie, przyjęcia, wesela, urodziny, Halloween, Wielkanoc, rocznicę i inne okazje świąteczne lub okolicznościowe. Stwórz romantyczny, gwiaździsty świat, aby zafascynować swoją rodzinę, przyjaciół a zwłaszcza dzieci.",
+    "categories": ["dom", "elektronika"],
+    "isBestseller": false
+  },
+  {
+    "id": 7,
+    "url": "images/cazki.png",
+    "name": "CĄŻKI DO WRASTAJĄCYCH PAZNOKCI",
+    "quantity": 700,
+    "price": "Widoczne po zalogowaniu",
+    "description": "Do produkcji cążków zastosowano najwyższej jakości materiały, między innymi hipoalergiczną stal wolframową. Dzięki niej produkt jest odporny na ścieranie, korozję czy zarysowania.",
+    "categories": ["dom"],
+    "isBestseller": false
+  },
+  {
+    "id": 8,
+    "url": "images/organizer-ubrania.png",
+    "name": "ORGANIZER NA UBRANIA",
+    "quantity": 2000,
+    "price": "Widoczne po zalogowaniu",
+    "description": "Nasz organizer wyposażony jest w aż 7 przegródek. Prosta budowa gwarantuje łatwy montaż oraz możliwość ekspresowego wyczyszczenia. Jest wykonany z wysokiej jakości materiałów dzięki czemu nie ulega zniszczeniom",
+    "categories": ["dom", "bestseller"],
+    "isBestseller": true
+  },
+  {
+    "id": 9,
+    "url": "images/odstraszacz-krety.png",
+    "name": "ODSTRASZACZ NA KRETY",
+    "quantity": 4000,
+    "price": "Widoczne po zalogowaniu",
+    "description": "ŁĄCZNY ZASIĘG DZIAŁANIA DWÓCH ODSTRASZACZY TO AŻ 1300m2 ! Zmienna\nczęstotliwość nadawania sygnału, ładowanie solarne, odporne na deszcz i wilgoć.",
+    "categories": ["ogród"],
+    "isBestseller": false
+  },
+  {
+    "id": 10,
+    "url": "images/uchwyt-gabka.png",
+    "name": "UCHWYT NA GĄBKĘ",
+    "quantity": 2000,
+    "price": "Widoczne po zalogowaniu",
+    "description": "Dzięki otwartej konstrukcji wieszaka gąbka będzie mogła szybko wyschnąć. Uchwyt jest bardzo trwały - wyposażony w świetną taśmę firmy 3M, co gwarantuje możliwość bezproblemowego kontaktu z wodą.",
+    "categories": ["dom"],
+    "isBestseller": false
+  },
+  {
+    "id": 11,
+    "url": "images/suszarka-pies.png",
+    "name": "SUSZARKA ZE SZCZOTKĄ DLA PSA",
+    "quantity": 250,
+    "price": "Widoczne po zalogowaniu",
+    "description": "Urządzenie to połączenie suszarki i szczotki - możesz w tym samym momencie czesać swojego pupila i suszyć go po kąpieli. Dzięki temu oszczędzasz mu stres związany z długą pielęgnacją, której pupile nie zawsze lubią się poddawać.",
+    "categories": ["dom"],
+    "isBestseller": false
+  },
+  {
+    "id": 12,
+    "url": "images/zestaw-manicure.png",
+    "name": "ZESTAW DO MANICURE PEDICURE DO PAZNOKCI 20ELEMENTÓW + ETUI",
+    "quantity": 300,
+    "price": "Widoczne po zalogowaniu",
+    "description": "Kompletny zestaw narzędzi dostosowany do każdej sytuacji, w zestawie znajdziesz narzędzia potrzebne do pielęgnacji dłoni, stóp oraz twarzy. Przenośna, praktyczna kabura ze sztucznej skóry, otwierana za pomocą jednego przycisku",
+    "categories": ["dom"],
+    "isBestseller": false
+  },
+  {
+    "id": 13,
+    "url": "images/sluchawka-eco.png",
+    "name": "OSZCZĘDNA SŁUCHAWKA PRYSZNICOWA",
+    "quantity": 200,
+    "price": "Widoczne po zalogowaniu",
+    "description": "Woda leci z wyjątkowo dużym ciśnieniem co pozwala na mniejsze zużycie nawet o 50%. Słuchawka została wyposażona w system napowietrzania wody, wspomaga on zmniejszenie twardości wody oraz pozbycie się nieprzyjemnych zapachów.",
+    "categories": ["dom", "łazienka"],
+    "isBestseller": false
+  },
+  {
+    "id": 14,
+    "url": "images/sw-mango.png",
+    "name": "VANICANDLE - Swieczka MANGO 180/400G",
+    "quantity": 50,
+    "price": "Widoczne po zalogowaniu",
+    "description": "Fresh Mango to świeca sojowa o przyjemnym orzeźwiającym aromacie z nutą słodyczy. Zapachem przypomina egzotyczny koktajl owocowy!",
+    "categories": ["dom"],
+    "isBestseller": false
+  },
+  {
+    "id": 15,
+    "url": "images/sw-vanilia.png",
+    "name": "VANICANDLE - Swieczka VANILLA 180/400G",
+    "quantity": 50,
+    "price": "Widoczne po zalogowaniu",
+    "description": "Jeśli uwielbiasz desery, szczególnie te z wanilią i kokosem – zakochasz się w tym zapachu! Świeca sojowa Vanilla Ice Cream to… słodycz sama w sobie. Zapachem przypomina aksamitne lody waniliowe.",
+    "categories": ["dom"],
+    "isBestseller": false
+  },
+  {
+    "id": 16,
+    "url": "images/sw-piwonia.png",
+    "name": "VANICANDLE - Swieczka PIWONIA 180/400G",
+    "quantity": 50,
+    "price": "Widoczne po zalogowaniu",
+    "description": "Słodki, kobiecy i sensualny – to określenia idealnie opisujące zapach świecy sojowej Peony Petals. Urzeknie Cię intensywnym zapachem świeżo ściętych piwonii, przenosząc do letniego ogrodu tonącego w promieniach słońca.",
+    "categories": ["dom"],
+    "isBestseller": false
+  },
+  {
+    "id": 17,
+    "url": "images/sw-ciasto.png",
+    "name": "VANICANDLE - Swieczka RASPBERRY 180/400G",
+    "quantity": 50,
+    "price": "Widoczne po zalogowaniu",
+    "description": "Świeca sojowa Raspberry Cake pachnie niczym… pyszny tort malinowy! Jeśli jesteś miłośnikiem deserów, jej intensywny aromat z pewnością przypadnie Ci do gustu.",
+    "categories": ["dom"],
+    "isBestseller": false
+  },
+  {
+    "id": 18,
+    "url": "images/miska-pies.png",
+    "name": "EDUKACYJNA MISKA DLA PSA",
+    "quantity": 200,
+    "price": "Widoczne po zalogowaniu",
+    "description": "Twój pies będzie mógł przesuwać elementy w zabawce za pomocą łap, zębów\nczy nosa. Odsłonięcie każdego otworu sprawi ogromną radość zwierzątku,gdy zobaczy w niej swój ulubiony smaczek!",
+    "categories": ["dom"],
+    "isBestseller": false
+  },
+  {
+    "id": 19,
+    "url": "images/polka-lazienkowa.png",
+    "name": "PÓŁKA ŁAZIENKOWA NAROŻNA POD PRYSZNIC",
+    "quantity": 200,
+    "price": "Widoczne po zalogowaniu",
+    "description": "Półka jest gładka, ma zaokrąglone krawędzie i wykończona jest na kolor głębokiej matowej czerni. Dodatkowe haczyki ułatwiają korzystanie z myjek i gąbek.",
+    "categories": ["dom", "łazienka"],
+    "isBestseller": false
+  },
+  {
+    "id": 20,
+    "url": "images/spinki-samochod.png",
+    "name": "ZESTAW SPINEK SAMOCHODOWYCH 620SZT",
+    "quantity": 500,
+    "price": "Widoczne po zalogowaniu",
+    "description": "100% nowy i wysokiej jakości produkt. Szeroko stosowany do błotników, zderzaków, drzwi lub innych powierzchni samochodu. Trwałe tworzywo sztuczne zapewniające długą żywotność.",
+    "categories": ["samochód"],
+    "isBestseller": false
+  },
+  {
+    "id": 21,
+    "url": "images/smartwatch-k55.png",
+    "name": "SMARTWATCH MĘSKI MILITARNY",
+    "quantity": 700,
+    "price": "Widoczne po zalogowaniu",
+    "description": "Najnowsza wersja! - Menu naszego smartwatcha jest w języku POLSKIM! Zegarek pochodzi z najnowszej kolekcji z 2023 roku, a do jego budowy użyto najnowszych komponentów o najwyższej jakości. ",
+    "categories": ["smartwatch", "elektronika"],
+    "isBestseller": true
   }
 ]
