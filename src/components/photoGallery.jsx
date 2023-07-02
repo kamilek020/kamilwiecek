@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
-import data from '../components/data-tests.json';
+import data from '../components/data.json';
 import { getCartItems, setCartItems } from '../helpers/storage-helper';
 
 const PhotoGallery = () => {
@@ -246,13 +246,14 @@ const PhotoGallery = () => {
                     className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-75"
                     onClick={handleOverlayClick}
                 >
-                    <div className="max-w-2xl bg-white rounded-lg p-8 overflow-y-auto">
+                    <div className="max-w-2xl md:max-w-md bg-white rounded-lg p-8 overflow-y-auto">
                         <h2 className="text-2xl font-semibold mb-4">{selectedProduct.name}</h2>
                         <img
                             src={selectedProduct.url}
                             alt={`Zdjęcie ${selectedProduct.id}`}
                             className="w-full mb-4"
                         />
+                        <p className="text-gray-500">Ilość sztuk: {selectedProduct.quantity}</p>
                         <p className="text-gray-600">{selectedProduct.description}</p>
                         <button
                             className="mt-4 bg-indigo-500 text-white px-4 py-2 rounded"
