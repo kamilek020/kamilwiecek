@@ -1,9 +1,9 @@
 import react from "react";
 import './App.css'
-import PhotoGallery from "./components/photoGallery.jsx";
-import ImportantInfoSection from "./components/ImportantInfoSection.jsx";
-import Footer from "./components/Footer.jsx";
-import Header from "./components/header.jsx";
+import Gallery from "./components/gallery/gallery.jsx";
+import ImportantInfoSection from "./components/infoSection/importantInfoSection.jsx";
+import Footer from "./components/footer/footer.jsx";
+import Header from "./components/header/header.jsx";
 
 
 function App() {
@@ -11,9 +11,8 @@ function App() {
   return (
     <div className="App">
         <Header />
-        <PhotoGallery />
+        <Gallery />
         <div className="mt-10">
-            {/*<ContactForm */}
         </div>
         <ImportantInfoSection />
         <Footer/>
