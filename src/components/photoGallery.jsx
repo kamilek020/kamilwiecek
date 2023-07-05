@@ -293,7 +293,7 @@ const PhotoGallery = () => {
                         <p className="text-gray-500">Ilość sztuk: {selectedProduct.quantity}</p>
                         <p className="text-gray-600">{selectedProduct.description}</p>
                         <button
-                            className="mt-4 bg-indigo-600 text-white px-4 py-2 rounded"
+                            className="mt-4 bg-indigo-500 text-white px-4 py-2 rounded"
                             onClick={closeDetails}
                         >
                             Zamknij
